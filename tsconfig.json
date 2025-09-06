@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./build",
+
+    // Environment Settings
+    "module": "commonjs",
+    "target": "es2020",
+    "moduleResolution": "node",
+    "types": ["node"],
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Recommended Options
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+
+    // Removed:
+    // "jsx" → not needed for backend
+    // "verbatimModuleSyntax" → conflicts with commonjs setup
+    // "isolatedModules" → more for bundlers like Vite
+    // "moduleDetection": "force" → not needed in backend
+    // "noUncheckedSideEffectImports" → can be re-enabled later
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
