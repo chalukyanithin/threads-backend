@@ -1,10 +1,10 @@
 import { get } from "node:http";
-
+import { format } from "date-fns";
 import postService, { createPostPayload } from "../../service/post"
 import { error } from "node:console";
 
 const queries = {
-  
+    
     getPosts: async (_: any, parameters: any, context: any) => {
     if (context && context.user) {
         const authorId = context.user.id; // ✅ this is the author's id
@@ -31,4 +31,11 @@ const mutations = {
     }
 }
 
-export const resolvers = { queries,mutations}
+const Thread = {
+  createdAt: (parent: any) => {
+    console.log("Raw createdAt:", parent.createdAt);
+    return format(new Date(parent.createdAt), "dd/MM/yyyy");
+  }
+}
+
+export const resolvers = { queries,mutations,Thread, };

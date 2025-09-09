@@ -3,6 +3,7 @@ export const typeDefs = `#graphql
             id : ID!
             post : String!
             createdAt : String!
+            authorId : String!
             
         
     }
