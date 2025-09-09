@@ -1,6 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { User } from "./user";
 import { Posts, } from "./threads";
+import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
 
 async function createApolloGraphqlServer() {
   const gqlServer = new ApolloServer({
@@ -29,6 +30,11 @@ async function createApolloGraphqlServer() {
         ...Posts.resolvers.mutations
       },
     },
+
+  introspection: true, // needed on Render/production
+  plugins: [
+    ApolloServerPluginLandingPageLocalDefault({ embed: true }) // ✅ enables Sandbox
+  ],
   });
 
   // Start the gql server
